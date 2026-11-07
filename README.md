@@ -8,6 +8,8 @@ A portable Codex skill for analyzing a WeChat conversation through local data. I
 
 The skill and scripts do not upload chat contents. Link manifests contain metadata only until an agent actually opens a URL. Murmur uses the same export route on Windows and Mac; ChatTrace and Dukou are platform-specific alternatives. This project does not run ChatTrace on macOS.
 
+**Mac setup is a separate prerequisite:** installing this skill does not install Murmur or grant access to WeChat's encrypted app container. If Codex gets `Operation not permitted` reading that container, stop direct reads. Install Murmur on the Mac, grant **Murmur.app** Full Disk Access when using its app build, fully restart it, and complete its local key-capture and decryption onboarding. Then confirm the target chat appears in Murmur before asking Codex to analyze it. See [Murmur's Mac guide](https://github.com/sgaofen/murmur/blob/main/docs/ONBOARDING_MAC.md).
+
 ## Install in Codex
 
 Clone or download this repository, then copy the complete `wechat-chat-analysis-yonder-lin` folder into `~/.codex/skills/` (or `$CODEX_HOME/skills/`). Restart Codex and invoke `$wechat-chat-analysis-yonder-lin`.
