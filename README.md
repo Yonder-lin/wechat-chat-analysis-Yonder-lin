@@ -1,12 +1,12 @@
 # wechat-chat-analysis-Yonder-lin
 
-A portable Codex skill for analyzing a WeChat conversation through local data:
+A portable Codex skill for analyzing a WeChat conversation through local data. It prioritizes software that works on both Windows and macOS:
 
-- **macOS (preferred):** a local [Murmur](https://github.com/sgaofen/murmur) decrypted database and structured conversation export. Murmur reads backend data, not chat-window screenshots. The helper filters its JSON export through an inclusive date and keeps only media attributed to selected messages.
+- **Windows and macOS (first choice):** a local [Murmur](https://github.com/sgaofen/murmur) decrypted database and structured conversation export. Murmur reads backend data, not chat-window screenshots. The helper filters its JSON export through an inclusive date and keeps only media attributed to selected messages.
 - **macOS (fallback):** a Dukou / WeChat export ZIP when Murmur key capture is unavailable or the user chooses that route.
-- **Windows:** a ChatTrace JSON export plus the same account's local media files and decrypted database. The helper filters by date, validates file attachments by MD5, decodes available images, and copies available videos and voice.
+- **Windows (fallback or fuller attachments):** a ChatTrace JSON export plus the same account's local media files and decrypted database. The helper filters by date, validates file attachments by MD5, decodes available images, and copies available videos and voice.
 
-The skill and scripts do not upload chat contents. Link manifests contain metadata only until an agent actually opens a URL. The Windows ChatTrace and Mac Murmur/Dukou routes use different source formats; this project does not run ChatTrace on macOS.
+The skill and scripts do not upload chat contents. Link manifests contain metadata only until an agent actually opens a URL. Murmur uses the same export route on Windows and Mac; ChatTrace and Dukou are platform-specific alternatives. This project does not run ChatTrace on macOS.
 
 ## Install in Codex
 
@@ -18,7 +18,7 @@ mkdir -p ~/.codex/skills
 cp -R wechat-chat-analysis-Yonder-lin/wechat-chat-analysis-yonder-lin ~/.codex/skills/
 ```
 
-Read [SKILL.md](wechat-chat-analysis-yonder-lin/SKILL.md) for the platform-specific workflow and commands. On macOS, install Murmur separately, finish its local database decryption, and export the target chat as JSON with media strategy `best`. Then run:
+Read [SKILL.md](wechat-chat-analysis-yonder-lin/SKILL.md) for the platform-specific workflow and commands. On Windows or macOS, install Murmur separately, finish its local database decryption, and export the target chat as JSON with media strategy `best`. Then run:
 
 ```bash
 python3 wechat-chat-analysis-yonder-lin/scripts/prepare_murmur.py \
@@ -26,7 +26,7 @@ python3 wechat-chat-analysis-yonder-lin/scripts/prepare_murmur.py \
   --out-dir /path/to/analysis-package
 ```
 
-The package contains date-filtered messages, copied available media, link and attachment manifests, and a status report. The alternative Dukou ZIP helper also requires Python 3.9+. On Windows, use the same Python environment as ChatTrace.
+The package contains date-filtered messages, copied available media, link and attachment manifests, and a status report. The alternative Dukou ZIP helper also requires Python 3.9+. For the Windows ChatTrace fallback, use the same Python environment as ChatTrace.
 
 ## Verification and limits
 
