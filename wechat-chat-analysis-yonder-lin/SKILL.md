@@ -36,7 +36,7 @@ Use this for one named conversation and the scope the user requests. On Windows,
 
 ## Check links and summarize
 
-Both helpers leave link status as `not_checked`. For links the user wants checked, open selected URLs with an available browser or web tool. Record `opened`, `failed`, or `not_checked` separately from the title and URL in the report. Do not infer remote content from a card title. Download linked files only when the user requested them and the link is accessible; keep those files separate from local WeChat attachments.
+All helpers leave link status as `not_checked`. For links the user wants checked, open selected URLs with an available browser or web tool. Record `opened`, `failed`, or `not_checked` separately from the title and URL in the report. Do not infer remote content from a card title. Download linked files only when the user requested them and the link is accessible; keep those files separate from local WeChat attachments.
 
 Read representative documents and images relevant to the requested summary. Inspect or transcribe videos and voice only when tools and time permit; otherwise say which media were copied but not interpreted. Summarize the main themes, decisions, and key exchanges with dates and evidence. A self-chat or file-transfer conversation may have no two-way dialogue; describe its notes and archive timeline instead. State the cutoff, source freshness, recovered counts, and material gaps. Avoid reproducing passwords, access codes, identity numbers, or unrelated personal details.
 
