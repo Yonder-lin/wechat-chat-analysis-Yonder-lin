@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.DS_Store
+*.zip
+exports/
+output/
+decrypted/
+media_cache/
+*.db
+*.sqlite
+all_keys.json
+
